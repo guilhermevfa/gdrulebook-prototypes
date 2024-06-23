@@ -1,0 +1,130 @@
+[gd_scene load_steps=10 format=3 uid="uid://d1jns75bfim8g"]
+
+[ext_resource type="Texture2D" uid="uid://df40tkle4gc8h" path="res://assets/frame/wood_frame.png" id="1_5eyqy"]
+[ext_resource type="Texture2D" uid="uid://d13g2snk8wtlb" path="res://assets/runes/rune_1.png" id="2_gcv8q"]
+[ext_resource type="Texture2D" uid="uid://c3c75nx5drb0i" path="res://assets/icons/sword.png" id="2_v2vl2"]
+[ext_resource type="Texture2D" uid="uid://nw2k0ipsb2gq" path="res://assets/icons/circle.png" id="3_huo5a"]
+[ext_resource type="Texture2D" uid="uid://bnoqqxsdnpipt" path="res://assets/icons/shield.png" id="4_dvklh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kjcb1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2bkle"]
+font_size = 8
+outline_size = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_4k46x"]
+font_size = 12
+outline_size = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_2ex3p"]
+font_size = 12
+outline_size = 1
+
+[node name="CardTemplate" type="AspectRatioContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.0
+offset_top = -76.0
+offset_right = 48.0
+offset_bottom = 131.0
+grow_horizontal = 2
+grow_vertical = 2
+ratio = 0.7
+stretch_mode = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_kjcb1")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="PanelContainer"]
+layout_mode = 2
+texture = ExtResource("1_5eyqy")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Art" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+texture = ExtResource("2_gcv8q")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Description" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Description description description description description description description"
+label_settings = SubResource("LabelSettings_2bkle")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="CombatAttributes" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Attack" type="CenterContainer" parent="PanelContainer/MarginContainer/VBoxContainer/CombatAttributes"]
+layout_mode = 2
+
+[node name="Sword" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/CombatAttributes/Attack"]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+texture = ExtResource("2_v2vl2")
+expand_mode = 5
+
+[node name="Border" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/CombatAttributes/Attack"]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(27, 0)
+layout_mode = 2
+texture = ExtResource("3_huo5a")
+expand_mode = 5
+
+[node name="Circle" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/CombatAttributes/Attack"]
+auto_translate_mode = 1
+modulate = Color(0.717647, 0.568627, 0.415686, 1)
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+texture = ExtResource("3_huo5a")
+expand_mode = 5
+
+[node name="AttackValue" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/CombatAttributes/Attack"]
+layout_mode = 2
+text = "20"
+label_settings = SubResource("LabelSettings_4k46x")
+
+[node name="Defense" type="CenterContainer" parent="PanelContainer/MarginContainer/VBoxContainer/CombatAttributes"]
+layout_mode = 2
+
+[node name="Shield" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/CombatAttributes/Defense"]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+texture = ExtResource("4_dvklh")
+expand_mode = 5
+
+[node name="Circle" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/CombatAttributes/Defense"]
+auto_translate_mode = 1
+modulate = Color(0.717647, 0.568627, 0.415686, 1)
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+texture = ExtResource("3_huo5a")
+expand_mode = 5
+
+[node name="DefenseValue" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/CombatAttributes/Defense"]
+layout_mode = 2
+text = "20"
+label_settings = SubResource("LabelSettings_2ex3p")
+
+[node name="Components" type="Node" parent="."]
